@@ -1,0 +1,155 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/81/trunk/src-benchmarks-roops/roops/core/objects
+END
+Pair.cs
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/75/trunk/src-benchmarks-roops/roops/core/objects/Pair.cs
+END
+TreeSetEntry.cs
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/73/trunk/src-benchmarks-roops/roops/core/objects/TreeSetEntry.cs
+END
+BinTreeNode.cs
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/70/trunk/src-benchmarks-roops/roops/core/objects/BinTreeNode.cs
+END
+BinomialHeapNode.cs
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/73/trunk/src-benchmarks-roops/roops/core/objects/BinomialHeapNode.cs
+END
+SinglyLinkedListNode.cs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/73/trunk/src-benchmarks-roops/roops/core/objects/SinglyLinkedListNode.cs
+END
+RoopsList.cs
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/76/trunk/src-benchmarks-roops/roops/core/objects/RoopsList.cs
+END
+FibHeap.cs
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/76/trunk/src-benchmarks-roops/roops/core/objects/FibHeap.cs
+END
+RoopsMap.cs
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/74/trunk/src-benchmarks-roops/roops/core/objects/RoopsMap.cs
+END
+LinkedList.cs
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/76/trunk/src-benchmarks-roops/roops/core/objects/LinkedList.cs
+END
+AvlTree.cs
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/79/trunk/src-benchmarks-roops/roops/core/objects/AvlTree.cs
+END
+FibHeapNode.cs
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/71/trunk/src-benchmarks-roops/roops/core/objects/FibHeapNode.cs
+END
+RoopsListNode.cs
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/75/trunk/src-benchmarks-roops/roops/core/objects/RoopsListNode.cs
+END
+LinkedListNode.cs
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/75/trunk/src-benchmarks-roops/roops/core/objects/LinkedListNode.cs
+END
+RoopsIntList.cs
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/76/trunk/src-benchmarks-roops/roops/core/objects/RoopsIntList.cs
+END
+ArrayList.cs
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/81/trunk/src-benchmarks-roops/roops/core/objects/ArrayList.cs
+END
+TreeSet.cs
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/79/trunk/src-benchmarks-roops/roops/core/objects/TreeSet.cs
+END
+RoopsSet.cs
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/74/trunk/src-benchmarks-roops/roops/core/objects/RoopsSet.cs
+END
+RoopsIntListNode.cs
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/75/trunk/src-benchmarks-roops/roops/core/objects/RoopsIntListNode.cs
+END
+NodeCachingLinkedList.cs
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/76/trunk/src-benchmarks-roops/roops/core/objects/NodeCachingLinkedList.cs
+END
+BinTree.cs
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/79/trunk/src-benchmarks-roops/roops/core/objects/BinTree.cs
+END
+BinomialHeap.cs
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/79/trunk/src-benchmarks-roops/roops/core/objects/BinomialHeap.cs
+END
+SinglyLinkedList.cs
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/76/trunk/src-benchmarks-roops/roops/core/objects/SinglyLinkedList.cs
+END
+AvlNode.cs
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/68/trunk/src-benchmarks-roops/roops/core/objects/AvlNode.cs
+END
+RoopsStack.cs
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/74/trunk/src-benchmarks-roops/roops/core/objects/RoopsStack.cs
+END
+Objects.cs
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/3/trunk/src-benchmarks-roops/roops/core/objects/Objects.cs
+END

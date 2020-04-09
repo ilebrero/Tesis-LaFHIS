@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/62/trunk/src-benchmarks-roops/roops/collections
+END
+RoopsList.cs
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/60/trunk/src-benchmarks-roops/roops/collections/RoopsList.cs
+END
+RoopsSet.cs
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/61/trunk/src-benchmarks-roops/roops/collections/RoopsSet.cs
+END
+RoopsMap.cs
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/60/trunk/src-benchmarks-roops/roops/collections/RoopsMap.cs
+END
+IntRedBlackTreeMap.cs
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/62/trunk/src-benchmarks-roops/roops/collections/IntRedBlackTreeMap.cs
+END
+Entry.cs
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/60/trunk/src-benchmarks-roops/roops/collections/Entry.cs
+END
+RoopsNaiveMap.cs
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/60/trunk/src-benchmarks-roops/roops/collections/RoopsNaiveMap.cs
+END
+Comparator.cs
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/60/trunk/src-benchmarks-roops/roops/collections/Comparator.cs
+END

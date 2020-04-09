@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Author csallner@uta.edu (Christoph Csallner)
+-->
+
+<project basedir="." default="all" name="Roops">
+
+  <!-- inc for major change -->
+  <property name="version" value="0.1" /> 
+	<!-- TODO: Include the proper license files -->
+	
+	<property name="src-benchmarks-roops" value="src-benchmarks-roops"/>
+	<property name="src-benchmarks-cs" value="src-benchmarks-cs"/>
+	<property name="src-benchmarks-java" value="src-benchmarks-java"/>
+	
+	<property name="src-converter-java" value="src-converter-java"/>
+	<property name="src-generator-java" value="src-generator-java"/>
+	<property name="src-utils-java" value="src-utils-java"/>
+	
+	<property name="test-converter" value="test-converter"/>  
+	
+  <property name="bin-java" value="bin-java"/>	
+	<property name="release" value="release" />
+
+  <path id="project.classpath">
+		<pathelement location="${bin-java}" />
+  </path>
+
+
+ <!-- Init --> 
+ 
+  <target name="init">
+    <buildnumber />
+		<mkdir dir="${release}"/>
+  </target>
+	
+	<target name="init-build" depends="init">
+  	<mkdir dir="${src-benchmarks-cs}"/>
+  	<mkdir dir="${src-benchmarks-java}"/>
+		<mkdir dir="${bin-java}"/>
+  </target>
+	
+	
+  <!-- Build the Roops to Java converter --> 
+	  
+  <target name="converter" depends="init-build">
+    <javac destdir="${bin-java}" debug="true">
+      <src path="${src-converter-java}" />
+      <classpath refid="project.classpath" />
+    </javac>
+  </target>
+	
+	<target name="roops2java" depends="converter">
+		<java classname="roops.util.Converter" 
+			fork="true"
+      classpath="${bin-java}">
+			<arg line="${src-benchmarks-roops} ${src-benchmarks-java} roops2java.txt java"/>
+    </java>
+	</target>
+	
+	<target name="benchmarks" depends="roops2java">
+    <javac destdir="${bin-java}" debug="true">
+      <src path="${src-utils-java}" />
+      <src path="${src-benchmarks-java}" />
+      <classpath refid="project.classpath" />
+    </javac>
+  </target>
+
+	
+	<!-- 
+	Release benchmarks in Roops source code format.  
+	-->
+	
+  <target name="release-roops-src" depends="init">
+    <zip destfile="${release}/roops-src-${version}.${build.number}.zip">
+      <fileset dir="${src-benchmarks-roops}" />
+    </zip>
+  </target>	
+
+	
+	<!-- 
+	Release benchmarks and tools in Java and Roops source formats 
+	-->
+	
+  <target name="release-java-src" depends="roops2java">
+    <zip destfile="${release}/roops-src-${version}.${build.number}.jar">
+    	<fileset dir="${src-benchmarks-roops}" />
+			<fileset dir="${src-benchmarks-java}/" />
+    	<fileset dir="${src-converter-java}/" />
+			<fileset dir="${src-generator-java}/" />
+    	<fileset dir="${src-utils-java}/" />
+    </zip>
+  </target>	
+
+	
+	
+	<!-- 
+	Release benchmarks and tools in Java bytecode format 
+	-->
+	
+  <target name="release-java-bin" depends="benchmarks">
+    <jar destfile="${release}/roops-${version}.${build.number}.jar">
+      <fileset dir="${bin-java}" />
+    </jar>  	
+  </target>
+  	
+
+	<!-- Produce all Roops bundles -->
+	
+  <target name="all" depends="release-roops-src,release-java-src,release-java-bin" />
+	
+  
+  <!-- Clean: Delete generated files --> 
+	
+  <target name="clean">
+  	<delete dir="${src-benchmarks-cs}" />
+  	<delete dir="${src-benchmarks-java}" />
+    <delete dir="${bin-java}" />
+  </target>
+</project>

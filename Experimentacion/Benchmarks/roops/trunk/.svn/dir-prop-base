@@ -1,0 +1,12 @@
+K 10
+svn:ignore
+V 81
+.settings
+bin
+bin-java
+eclipse-bin
+release
+src-benchmarks-cs
+src-benchmarks-java
+
+END

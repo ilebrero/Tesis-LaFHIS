@@ -1,0 +1,65 @@
+Arrays:
+	- Casos:
+		* Declaracion
+			* Dinamica: New
+				* Como afectan los tipos?
+
+			* Estatica: Declarados explicitamente
+				* Con contenido
+				* Que hace cuano agrega contenido
+
+		* agregar cosas
+			* reemplazar un valor
+			* agregar en un indice sin usar
+
+		* Borrar el array
+			????
+
+	Donde se puede instrumentar:
+		Visit Code:
+			- Parametros de la llamada al metodo
+
+		Visit instruction:
+			-  Del manual de ASM Pg 33. 
+				ILOAD is used to load a boolean, byte, char, short, or int local variable. LLOAD, FLOAD and DLOAD are used to load a long, float or double value, respectively (LLOAD and DLOAD actually load the two slots i and i + 1). Finally ALOAD is used to load any non primitive value, i.e. object and array references. Symmetrically the ISTORE, LSTORE, FSTORE, DSTORE and ASTORE instructions pop a value from the operand stack and store it in a local variable designated by its index i.
+
+			- Casos:
+				// Operandos de https://en.wikipedia.org/wiki/Java_bytecode_instruction_listings
+
+				- LOAD
+					- ILOAD
+					- LLOAD
+					- DLOAD
+					- ALOAD
+
+					- IALOAD
+					- LALOAD
+					- DALOAD
+					- FALOAD
+					- AALOAD
+					- BALOAD
+					- CALOAD
+					- SALOAD
+
+				- STORE
+					// Simples
+					- IASTORE
+					- FASTORE
+					- BASTORE
+					- CASTORE
+					- SASTORE
+
+					// Referencias: objts / arrays red
+					- AASTORE
+					
+					// tipos con doble espacio de operando en el stack
+					- LASTORE
+					- DASTORE
+
+				- OTROS
+					- ATHROW
+					- ARRAY_LENGTH
+
+				
+
+

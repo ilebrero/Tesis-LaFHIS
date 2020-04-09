@@ -1,0 +1,27 @@
+Algoritmo general de ejecucion DSE:
+	1) Arranca con una entrada generada cualquiera 
+	2) Mientras "siga generando casos"
+		---- Armado de test case y ejecucion concolica
+		3) En base a X test
+		4) Levantar la path condition: Hacer una ejecucion concolica Problemas de modelo de memeoria, motor concolico, etc)
+		5) limpieza de constraints del path condition
+
+		---- Armado de SMT query y generacion de cosas concretas
+		6) por cada elemento mas chico del path condition (esto se puede generalizar)
+		7) chequeo de si tiene sentido hacer la query
+		8) Por aca puede ir pruing optimizaciones locas, etc
+		9) obtener resultado del solver
+		10) Chequeos de Satisfacibilidad y mejora de fitness
+
+
+
+Cosas que van quedando:
+	- DSETestGeneration
+		- Arreglar DSETestGenerator para que use el next path condition general que se arme de alguna estrategia
+		- Borrar
+
+	- SolverUtils
+		- Arreglar buildQuery para que genere bien la query
+
+	- PathConditionUtils
+		- Terminar el metodo para que niegue el i-esimo elemento del path codition

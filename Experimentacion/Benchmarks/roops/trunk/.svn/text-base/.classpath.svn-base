@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src-converter-java"/>
+	<classpathentry kind="src" path="src-utils-java"/>
+	<classpathentry kind="src" path="src-generator-java"/>
+	<classpathentry kind="src" path="src-benchmarks-java-only"/>
+	<classpathentry kind="src" path="src-benchmarks-java"/>
+	<classpathentry kind="src" path="src-checker"/>
+	<classpathentry kind="src" path="test-forbidden"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/jode.jar" sourcepath="/Jode/src"/>
+	<classpathentry kind="output" path="eclipse-bin"/>
+</classpath>

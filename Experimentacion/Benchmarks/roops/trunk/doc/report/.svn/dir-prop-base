@@ -1,0 +1,15 @@
+K 10
+svn:ignore
+V 60
+*.aux
+*.bbl
+*.blg
+*.dvi
+*.idx
+*.ilg
+*.ind
+*.log
+*.pdf
+*.toc
+
+END

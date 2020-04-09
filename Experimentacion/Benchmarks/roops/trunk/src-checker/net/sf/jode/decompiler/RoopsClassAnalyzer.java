@@ -1,0 +1,367 @@
+package net.sf.jode.decompiler;
+
+import java.io.IOException;
+import java.lang.reflect.Modifier;
+import java.util.Iterator;
+
+import com.sun.istack.internal.NotNull;
+
+import net.sf.jode.bytecode.BasicBlocks;
+import net.sf.jode.bytecode.Block;
+import net.sf.jode.bytecode.ClassFormatException;
+import net.sf.jode.bytecode.ClassInfo;
+import net.sf.jode.bytecode.Instruction;
+import net.sf.jode.bytecode.MethodInfo;
+import net.sf.jode.bytecode.Reference;
+import net.sf.jode.decompiler.ClassAnalyzer;
+import net.sf.jode.decompiler.ImportHandler;
+import net.sf.jode.util.SimpleSet;
+
+/**
+ * FIXME: Not nice to put this class in a Jode package
+ * 
+ * @author csallner@uta.edu (Christoph Csallner)
+ */
+public class RoopsClassAnalyzer extends ClassAnalyzer {
+
+  /**
+   * copy-and-paste from super class
+   */
+  protected static int STRICTFP = 0x800;
+	
+  /**
+   * FIXME: copy-and-paste from super class
+   * 
+   * The complexity for initializing a class.
+   */
+  protected static double INITIALIZE_COMPLEXITY = 0.03;
+	
+	/**
+	 * Constructor
+	 */
+	public RoopsClassAnalyzer(ClassInfo clazz, ImportHandler imports)
+	throws ClassFormatException, IOException
+  {
+		super(null, clazz, imports);
+  }
+	
+	protected String getClassName() {
+		return clazz.getName();
+	}
+
+	protected String getFullName(MethodInfo mInfo){
+		return getClassName()+"."+mInfo.getName()+mInfo.getType();
+	}
+	
+	
+	protected boolean checkRoopsRulesImports(Iterator<String> iter)
+	{
+		boolean res = true;
+		
+    while (iter.hasNext()) 
+    {
+    	String pkgName = (String)iter.next();
+    	if (pkgName.startsWith("java.util"))
+    	{
+    		res = false;
+    		System.out.println("found import java.util in class: "+getClassName());
+    	}
+    }
+    
+    return res;
+	}
+	
+	
+	/**
+	 * Sift through all instructions of all declared methods
+	 */
+	protected boolean checkRoopsRules(MethodInfo[] methodInfos)
+	{
+		boolean okay = true;
+		
+		for (MethodInfo methodInfo: methodInfos) 
+		{
+			BasicBlocks bb = methodInfo.getBasicBlocks();
+			Block[] blocks = bb.getBlocks();
+			for (Block block: blocks)
+			{
+				Instruction[] instructions = block.getInstructions();
+				for (Instruction instruction: instructions)
+				{
+					switch (instruction.getOpcode()) {
+					
+					/* Check for call to <method_name, parameter_types>.
+					 * Ignore the static receiver type, as the dynamic receiver type
+					 * is not guaranteed to declare the same methods, see:
+					 * http://java.sun.com/docs/books/jvms/second_edition/html/Instructions2.doc6.html#invokevirtual
+					 * http://java.sun.com/docs/books/jls/second_edition/html/binaryComp.doc.html#44872 */
+					case Opcodes.opc_invokespecial:
+					case Opcodes.opc_invokevirtual:
+						Reference ref = instruction.getReference();						
+					  if ("equals".equals(ref.getName()) && "(Ljava/lang/Object;)Z".equals(ref.getType()))
+					  {
+					  	System.out.println("found call to equals(Object) in method: "+getFullName(methodInfo));
+					  	okay = false;
+					  }
+					  else if ("hashCode".equals(ref.getName()) && "()I".equals(ref.getType()))
+					  {
+					  	System.out.println("found call to hashCode() in method: "+getFullName(methodInfo));
+					  	okay = false;
+					  }
+						break;
+						
+						
+						/* Do not allow any operation on double values */
+					case Opcodes.opc_d2f:
+					case Opcodes.opc_d2i:
+					case Opcodes.opc_d2l:
+					case Opcodes.opc_dadd:
+					case Opcodes.opc_daload:
+					case Opcodes.opc_dastore:
+					case Opcodes.opc_dcmpg:
+					case Opcodes.opc_dcmpl:
+					case Opcodes.opc_dconst_0:
+					case Opcodes.opc_dconst_1:
+					case Opcodes.opc_ddiv:
+					case Opcodes.opc_dload:
+					case Opcodes.opc_dload_0:
+					case Opcodes.opc_dload_1:
+					case Opcodes.opc_dload_2:
+					case Opcodes.opc_dload_3:
+					case Opcodes.opc_dmul:
+					case Opcodes.opc_dneg:
+					case Opcodes.opc_drem:
+					case Opcodes.opc_dreturn:
+					case Opcodes.opc_dstore:
+					case Opcodes.opc_dstore_0:
+					case Opcodes.opc_dstore_1:
+					case Opcodes.opc_dstore_2:
+					case Opcodes.opc_dstore_3:
+					case Opcodes.opc_dsub:
+						System.out.println("found operation on double in method: "+getFullName(methodInfo));
+						okay = false;
+						break;	
+						
+					case Opcodes.opc_ldc2_w:
+						System.out.println("found operation on double/long in method: "+getFullName(methodInfo));
+						okay = false;
+						break;	
+						
+					/* Do not allow any operation on float values */
+					case Opcodes.opc_f2d:
+					case Opcodes.opc_f2i:
+					case Opcodes.opc_f2l:
+					case Opcodes.opc_fadd:
+					case Opcodes.opc_faload:
+					case Opcodes.opc_fastore:
+					case Opcodes.opc_fcmpg:
+					case Opcodes.opc_fcmpl:
+					case Opcodes.opc_fconst_0:
+					case Opcodes.opc_fconst_1:
+					case Opcodes.opc_fconst_2:
+					case Opcodes.opc_fdiv:
+					case Opcodes.opc_fload:
+					case Opcodes.opc_fload_0:
+					case Opcodes.opc_fload_1:
+					case Opcodes.opc_fload_2:
+					case Opcodes.opc_fload_3:
+					case Opcodes.opc_fmul:
+					case Opcodes.opc_fneg:
+					case Opcodes.opc_frem:
+					case Opcodes.opc_freturn:
+					case Opcodes.opc_fstore:
+					case Opcodes.opc_fstore_0:
+					case Opcodes.opc_fstore_1:
+					case Opcodes.opc_fstore_2:
+					case Opcodes.opc_fstore_3:
+					case Opcodes.opc_fsub:
+						System.out.println("found operation on float in method: "+getFullName(methodInfo));
+						okay = false;
+						break;					
+
+					/* Do not allow any operation on long values */
+					case Opcodes.opc_l2d:
+					case Opcodes.opc_l2f:
+					case Opcodes.opc_l2i:
+					case Opcodes.opc_ladd:
+					case Opcodes.opc_laload:
+					case Opcodes.opc_land:
+					case Opcodes.opc_lastore:
+					case Opcodes.opc_lcmp:
+					case Opcodes.opc_lconst_0:
+					case Opcodes.opc_lconst_1:
+					case Opcodes.opc_ldiv:
+					case Opcodes.opc_lload:
+					case Opcodes.opc_lload_0:
+					case Opcodes.opc_lload_1:
+					case Opcodes.opc_lload_2:
+					case Opcodes.opc_lload_3:
+					case Opcodes.opc_lmul:
+					case Opcodes.opc_lneg:
+					case Opcodes.opc_lor:
+					case Opcodes.opc_lrem:
+					case Opcodes.opc_lreturn:
+					case Opcodes.opc_lshl:
+					case Opcodes.opc_lshr:
+					case Opcodes.opc_lstore:
+					case Opcodes.opc_lstore_0:
+					case Opcodes.opc_lstore_1:
+					case Opcodes.opc_lstore_2:
+					case Opcodes.opc_lstore_3:
+					case Opcodes.opc_lsub:
+					case Opcodes.opc_lushr:
+					case Opcodes.opc_lxor:
+						System.out.println("found operation on long in method: "+getFullName(methodInfo));
+						okay = false;
+						break;
+						
+					default:
+						break;
+					} 
+				}
+			}			
+		}		
+		return okay;
+	}
+	
+	
+	/**
+	 * 
+	 * 
+	 * @return if the wrapped class satisfies the Roops language restrictions.
+	 */
+	public boolean checkRoopsRules()
+	{
+		if (clazz==null)
+			return false;
+		
+		boolean okay = true;
+		
+		okay &= checkRoopsRules(clazz.getMethods());
+		
+		// clazz.get
+
+		return okay;
+	}
+	
+	protected boolean okay = true;
+	
+	/**
+	 * Add check of imports
+	 */
+	public void dumpJavaFile(TabbedPrintWriter writer, ProgressListener pl) 
+	throws IOException 
+	{    
+		imports.init(clazz.getName());
+		LocalInfo.init();
+		initialize();
+		double done = 0.05;
+		double scale = (0.75) * methodComplexity 
+		/ (methodComplexity + innerComplexity);
+		analyze(pl, INITIALIZE_COMPLEXITY, scale);
+		done += scale;
+		analyzeInnerClasses(pl, done, 0.8 - done);
+		makeDeclaration(new SimpleSet());
+		imports.dumpHeader(writer);
+		
+		
+		/* dirty trick to access package-visible field in
+		 * the ImportHandler class */
+		Iterator<String> iter = imports.imports.keySet().iterator();
+		if (! checkRoopsRulesImports(iter))
+		{
+			okay = false;
+			writer.flush();
+			return;
+			// FIXME: caller should delete the file that we started writing.
+		}
+		
+		dumpSource(writer, pl, 0.8, 0.2);
+		
+		// close name space
+		writer.println("}");
+		
+		if (pl != null)
+			pl.updateProgress(1.0, name);
+		writer.flush();
+	}
+	
+	
+	public void dumpDeclaration(TabbedPrintWriter writer,
+			ProgressListener pl, double done, double scale)
+	throws IOException
+	{
+		if (fields == null) {
+			/* This means that the class could not be loaded.
+			 * give up.
+			 */
+			return;
+		}
+
+		writer.startOp(writer.NO_PAREN, 0);
+		/* Clear the SUPER bit, which is also used as SYNCHRONIZED bit. */
+		int modifiedModifiers = modifiers & ~(Modifier.SYNCHRONIZED
+				| STRICTFP);
+		if (clazz.isInterface())
+			/* interfaces are implicitily abstract */
+			modifiedModifiers &= ~Modifier.ABSTRACT;
+		if (parent instanceof MethodAnalyzer) {
+			/* method scope classes are implicitly private */
+			modifiedModifiers &= ~Modifier.PRIVATE;
+			/* anonymous classes are implicitly final */
+			if (name == null)
+				modifiedModifiers &= ~Modifier.FINAL;
+		}
+		String modif = Modifier.toString(modifiedModifiers);
+		if (modif.length() > 0)
+			writer.print(modif + " ");
+		if (isStrictFP()) {
+			/* The STRICTFP modifier is set.
+			 * We handle it, since java.lang.reflect.Modifier is too dumb.
+			 */
+			writer.print("strictfp ");
+		}
+		/* interface is in modif */
+		if (!clazz.isInterface())
+			writer.print("class ");
+		writer.print(name);
+		ClassInfo superClazz = clazz.getSuperclass();
+		
+		boolean namedSuperClass = false;
+		
+		if (superClazz != null 
+				&& superClazz.getName() != "java.lang.Object") 
+		{
+			writer.breakOp();
+			namedSuperClass = true;	
+			/* replace: "extends X"
+			 * with: ": X" */
+			writer.print(" : " + (writer.getClassString(superClazz, Scope.CLASSNAME)));
+		}
+		ClassInfo[] interfaces = clazz.getInterfaces();
+		if (interfaces.length > 0) {
+			writer.breakOp();
+			
+			if (! namedSuperClass)
+				writer.print(" : ");
+			
+			writer.startOp(writer.EXPL_PAREN, 1);
+			for (int i=0; i < interfaces.length; i++) {
+				if (i > 0 || namedSuperClass) {
+					writer.print(", ");
+					writer.breakOp();
+				}
+				writer.print(writer.getClassString
+						(interfaces[i], Scope.CLASSNAME));
+			}
+			writer.endOp();
+		}
+		writer.println();
+
+		writer.openBraceClass();
+		writer.tab();
+		dumpBlock(writer, pl, done, scale);
+		writer.untab();
+		writer.closeBraceClass();
+	}	
+}

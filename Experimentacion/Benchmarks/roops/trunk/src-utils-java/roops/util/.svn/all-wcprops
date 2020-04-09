@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/59/trunk/src-utils-java/roops/util
+END
+Verdict.java
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/3/trunk/src-utils-java/roops/util/Verdict.java
+END
+RoopsContract.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/3/trunk/src-utils-java/roops/util/RoopsContract.java
+END
+BenchmarkClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/3/trunk/src-utils-java/roops/util/BenchmarkClass.java
+END
+RoopsArray.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/3/trunk/src-utils-java/roops/util/RoopsArray.java
+END
+Goals.java
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/59/trunk/src-utils-java/roops/util/Goals.java
+END
+NrOfGoals.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/3/trunk/src-utils-java/roops/util/NrOfGoals.java
+END
+BenchmarkMethod.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/4/trunk/src-utils-java/roops/util/BenchmarkMethod.java
+END
+ReachedGoal.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/24/trunk/src-utils-java/roops/util/ReachedGoal.java
+END

@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/54/trunk/test-forbidden/test/roops/forbidden
+END
+DoesNotOverride.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/49/trunk/test-forbidden/test/roops/forbidden/DoesNotOverride.java
+END
+Calls_hashCode.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/49/trunk/test-forbidden/test/roops/forbidden/Calls_hashCode.java
+END
+OverridesEquals.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/50/trunk/test-forbidden/test/roops/forbidden/OverridesEquals.java
+END
+Uses_java_util.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/54/trunk/test-forbidden/test/roops/forbidden/Uses_java_util.java
+END
+Uses_long.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/51/trunk/test-forbidden/test/roops/forbidden/Uses_long.java
+END
+OverridesHashCode.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/49/trunk/test-forbidden/test/roops/forbidden/OverridesHashCode.java
+END
+Uses_float.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/51/trunk/test-forbidden/test/roops/forbidden/Uses_float.java
+END
+Calls_equals.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/50/trunk/test-forbidden/test/roops/forbidden/Calls_equals.java
+END
+Uses_double.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/51/trunk/test-forbidden/test/roops/forbidden/Uses_double.java
+END
