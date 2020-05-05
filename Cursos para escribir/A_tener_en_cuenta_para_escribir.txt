@@ -1,0 +1,43 @@
+Algunas estructuras:
+    - 1)
+        + Una idea central sobre el parrafo
+            * Statements
+            * Una descripcion mas completa del statement.
+                - Las quotations van aca!!
+
+    * Citas:
+        * Poner entre comillas el quote de la cita y untre parentesis el link a la referencia.
+
+    * Tipos de parrafos que se pueden poner:
+        - Tipo 1:
+            - Causa \ efecto
+            - Comparacion \ contraste
+            - Ilustracion \ ejemplificacion
+            - Argumentativo
+            - Clasificacion
+        - Tipo 2:
+            - Descripcion
+            - Narracion
+            - Proceso
+
+        * se puede jugar con estos parrafor para construir la idea:
+            e.g. arrancar con un parrafo de descripcion para dar background de lo que se hace y despues mostrar alguna comparacion para dar mas color al tema.
+
+Plagios:
+    - Zero tolerancia a plagios
+    - Ojo con:
+        + copiar directamente cosas sin quotes
+        + copiar directamente sin citar fuente
+        + parafrasear sin citar a la fuente
+        + Cambiar algunas palabras para hacerlo parecer como las tuyas
+    - conviene:
+        + quotes a todas las cosas prestadas
+        + citar la fuente de cada quote
+        + citar la fuente de cada parafraseada
+        + usar tus propias palabras e ideas a menos que cites las fuentes
+
+Synthesis del essay:
+    * Dar el topico del que se habla con algunas cosas que pueden pasar por eso
+    * Para vody paragraph:
+        - dar soportes para la sintesis de lo que se quiso poner.
+        - 

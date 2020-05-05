@@ -1,0 +1,36 @@
+Reunion 28-04
+	- Preliminares:
+		- error, falla, control flow graph o con escribir solo 
+		- SBST
+			- Algoritmos evolutivos
+			- Algoritmos genticos
+		- Symbolic Executiondd
+			- Dynamic symbolic execution
+			- SMT
+			- Algoritmos de exploracion
+			- Problemas
+				- Path divergence
+				- Flag problem
+				
+	- Experimentacion
+		- Corridas de a 3 minutos
+		- segmentacion por tiempos
+			- Tiempo de Ejecucion concolico
+			- Tiempo de ejecucion del solver
+			- Tiempo de ejecucion desde la creacion del objeto de estadisticas
+			- Tiempo corriendo minimizando tests
+
+			Comparaciones
+			- Porque no hubo muchos mas tests?
+			
+			Para el algoritmo viejo
+			- Tiempo resolviendo concolicamente?
+			- Cantidad del largo de las constraints
+
+
+		- Cosas interesantes:
+			- SOOT: framework configurable 
+			
+			- 
+
+		- Paer

@@ -1,0 +1,51 @@
+Notacion:
+	- Seccion
+	* Tema
+	+ Parrafo
+
+Papers
+	P1 - Theoretical and Empirical Studies of Program Testing, William E. Howden
+
+Libros
+	L1 - Design Patterns: Elements of Reusable Object-Oriented Software, Erich Gamma, John Vlissides, Richard Helm, Ralph Johnson
+
+Introduccion a la tesis:
+	- Intro al tema
+		* Que es ingenieria del software?  
+			+ Software simple academico con ejemplos. Algun calculo simple como fibonacci 
+			+ Una aplicacion simple con ejemplos. Una calculadora con suma, resta y multiplicacion
+			+ Una palicacion con interfaz grafica y una base de datos
+			+ Ahora distribuida y corriendo en el cloud
+		* Que es verificacion formal del software?
+			+ Que es y como aplica sobre el software en general
+			+ Porque no escala usarlo en programas complejos
+		
+	- Testing:	
+		* Introduccion al testing de software
+			+ Que es
+			+ Generar un programa para testear otro
+			+ Como se contrasta con la verificacion formal
+		* Porque usar testing
+			* Consistencia de secciones de codigo con respecto a versionado
+			* Evolucion del software a travez del tiempo
+		* tecnicas de testign
+			* testing unitario
+			* testing de integracion
+			* testing del sistema
+		* Metricas y heuristicas para probar que el programa sea relativamente correcto
+			+ Como medir el nivel de testeo del codigo
+			+ Metricas Conocidas
+			+ Pros y contras
+
+	- Testing automatizado
+		* Que es y que beneficios tiene
+			+ De que se trata 
+			+ Porque no querria correr tests por mi cuenta?
+		* Tecnicas y herramientas que ya existen
+			+ Test de mutacion / random testing / search baed testing /etc....
+		* Porque no sirve para testear correctitud de logica de negocio
+		* metricas y cosas que puede hacer
+		* Porque es bueno para encontrar bugs
+
+	- Evosuite
+		* 
