@@ -1,0 +1,45 @@
+Reunion Semana 22/06;
+	- Herramientas:
+		- Test Input Generation:
+			* Pathfinder-Symbolic
+			* Korat
+
+		- Soporte de objetos:
+			* DSC: mock
+			* CUTE: input map de memoria logica
+				* Para resolver punteros: grafo de punteros armando clases de equivalencia.
+
+	- Pasos 
+		- Arrays:
+			* Implementacion 1: Teoria de arrays
+			* Implementacion 2: Arrays symoblicos lazy
+				+ Las dos usan la misma resolucion del largo
+
+		- Objetos:
+			* Temas:
+				* Resolucion de punteros:
+					CUTE: grafo de objetos, clases de equivalencia y chequea contra ejes conectados entre si.
+						- Nosotros: Clase de equivalencia
+				* Generacion de objetos nuevos:
+					- Private api access:
+						- Para todo el resto si hay inv rep
+					- Mocks:
+						- Clases finales, interfacez, etc
+				* Modelo de memoria:
+					- Objetos con campos inicializados paricalmente (lazy) (se guardan los campos)
+				* Invariantes:
+					- Sin invariante -> 
+						1) genero objeto random
+						2) Genero el invariante (!!!)
+					- Con invariante -> genero lo que falta del objeto y corro symbolicamente el invariante de representacion para que complete lo que falta.
+
+			* DSC: ver como representan el heap en SMT.
+				* Como representar el heap en Z3. Boogie: lenguage intermedio de microsoft para tarducir cosas a z3.
+				
+				* Mandarle mail a christop 
+
+		- Generacion de invariante:
+			* Daikon
+			* Deryaft
+
+			feelmand driven invariant discovery

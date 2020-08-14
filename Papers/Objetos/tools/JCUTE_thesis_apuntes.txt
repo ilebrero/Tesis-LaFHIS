@@ -1,0 +1,56 @@
+JCUTE
+
+- Contenido de contexto
+	- Information: Tiene parametros generales de la ejecucion symbolica (modo de busqueda, si esta optimizado, profundidad, semilla, etc...).
+	- Globals: Todo el estado de la ejecucion a alto nivel (stacs, path contraint, generador de inputs, etc...)
+	- Object input:  
+
+- Generacion de contenido
+	- InputImpl: Setter de objetos para instrumentado
+
+	- InputMap: Contenido de los inputs (simbolicos)
+		- Tipos primitivos: .myInput con constantes
+		- Objetos: .ObjectAux con className (shallow no aplica recursivamente)
+		- InitializeInputObjectFields: inicializa las cosas relacionadas a los objetos
+
+			* x cada campo de la clase (levanta una copia de cada uno)
+				* Mira los modificadores
+				* levanta el tipo
+				* Asigna el nombre del campo con el tipo a la variable simbolica del objeto
+				* Crea en el stack de llamadas un nueva llamado a una funcion null con linea -1 (?)
+					* al campo se le setea el valor de cada tipo con el setter que trae field
+						* Si es un objeto se usa el setter generico propio del campo con el valor de la llamada recursiva al campo: 
+
+						field1.set(
+							ret,input(
+								field1.getType(),
+								tab+1,
+								recursive
+							)
+						);
+
+		-input de objeto:
+			- Chequea:
+				* que sea instanciable (no abstracta o interfaz)
+				* Si el input esta disponible: que el input actual nosea null y que el typo matchee
+					-! Si no esta disponible, lo inicializa y returnea
+					- Si esta disponible, lo levanta y sigue
+
+				- Si el vlaor inerno ya esta inicializado, lo devuelve, sino lo crea
+
+			- Intenta inicializar una instancia de la clase. (llamar a Class.newInstance() nomas)
+
+
+
+
+	- JUnitTestGeenration: ?? 
+		- valueObject: Settea el valor que se va a devolver. Si no es un objeto conocido -> stmts.add(type+" "+tmpstr+" = new "+type+"(\""+ret+"\");"); 
+			* type = clase, tmpsrt = nombre var, ret = parametros del objeto
+			- stmts? valor de las condiciones?
+
+
+	- JCuteTextUI
+		- runJCuteOnce: corre la posta?
+
+- Ejecucion concolica:
+	- Call: actualizcion de 
